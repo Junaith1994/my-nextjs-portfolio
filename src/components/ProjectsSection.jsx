@@ -1,26 +1,108 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+import { Card, CardBody } from "@heroui/react";
 
 const projects = [
   {
-    name: "E-Commerce Platform",
-    image: "/projects/ecommerce.png", // Replace with your actual image path
-    technologies: ["React", "Next.js", "TailwindCSS", "MongoDB"],
-    github: "https://github.com/yourusername/ecommerce-project",
+    name: "jk-elite-securities-warehouse",
+    description:
+      "A warehouse of security products like Surveillance cameras, Surveillance drones, Alarms, Access Control devices etc. Stock/delivery of the products are being managed from here.",
+    image: "/assets/projects-img/jk-elite-securities.png",
+    technologies: [
+      "React",
+      "TailwindCSS",
+      "react-google-charts",
+      "moment.js",
+      "react-type-animation",
+      "Node.js",
+      "MongoDB",
+      "Express",
+      "JWT",
+    ],
+    github: "https://github.com/Junaith1994/jk-elite-securities-warehouse",
+    sitelink: "https://jk-elite-securities-warehouse.web.app/",
   },
   {
-    name: "Chat Application",
-    image: "/projects/chat-app.png",
-    technologies: ["Node.js", "Socket.io", "Express", "MongoDB"],
-    github: "https://github.com/yourusername/chat-application",
+    name: "Radiant Root",
+    description:
+      "Radiant Root is a volunteer managemet website where any person can register as a volunteer for any services of choice. They can login, register for any services, see and manage their volunteer activity",
+    image: "/assets/projects-img/radiant-root.png",
+    technologies: [
+      "React",
+      "Bootstrap",
+      "Firebase",
+      "Axios",
+      "react-toastify",
+      "Node-Express",
+      "MongoDB",
+      "JWT",
+    ],
+    github: "https://github.com/Junaith1994/radiant-roots",
+    sitelink: "https://radiant-roots.web.app/",
   },
   {
-    name: "Portfolio Website",
-    image: "/projects/portfolio.png",
-    technologies: ["Next.js", "TypeScript", "Framer Motion"],
-    github: "https://github.com/yourusername/portfolio-website",
+    name: "Genius car",
+    description:
+      "Genius Car is website where people can book any car related services for their car like - repairing, car-servicing, break-changing, oil changing, washing etc. One can book any services after creaing account or login with gmail. They can also manage their booking like deleting bookings or creating a new booking",
+    image: "/assets/projects-img/genius-car.png",
+    technologies: [
+      "React",
+      "Bootstrap",
+      "Firebase",
+      "Axios",
+      "React-hook-form",
+      "react-toastify",
+      "Node-Express",
+      "MongoDB",
+      "JWT",
+    ],
+    github: "https://github.com/Junaith1994/react-genius-car-services",
+    sitelink: "https://genius-car-services-24ae5.web.app/",
+  },
+  {
+    name: "nextjs-e-commerce-backend",
+    category: "Backend",
+    description: "An ongoing E-commerce backend project ",
+    image: "/assets/projects-img/nextjs-ecommerce-backend.png",
+    technologies: ["TypeScript", "Next.js", "Mongoose", "Node-Express", "JWT"],
+    github: "https://github.com/Junaith1994/nextjs-e-commerce-backend",
+    sitelink: "",
+  },
+  {
+    name: "Dr. Junaith",
+    description:
+      "A dentist personal website where he offered his services and patients can book their desired services after login. Users can create account with email Or can directly login with Gmail.",
+    image: "/assets/projects-img/dental-website.png",
+    technologies: [
+      "React",
+      "React-Bootstrap",
+      "Firebase",
+      "React-hook-form",
+      "React-toastify",
+    ],
+    github: "https://github.com/Junaith1994/Dr-Junaith",
+    sitelink: "https://dr-junaith.netlify.app/",
+  },
+  {
+    name: "Laptop Reviews",
+    description:
+      "Laptop Reviews is a website where people can see the reviews of any laptop",
+    image: "/assets/projects-img/laptop-review.png",
+    technologies: ["React", "Bootstrap", "Recharts"],
+    github: "https://github.com/Junaith1994/react-laptop-reviews",
+    sitelink: "https://react-laptop-reviews.netlify.app/",
+  },
+  {
+    name: "react-red-onion-food",
+    description:
+      "Red Onion Food Restaurant is a restaurant website featured with adding food items in cart, calculate price according to quantity, login & sign-up options. These are for now this site needs more basic features which is in progress. It's just a User Interface with some limited functional features",
+    image: "/assets/projects-img/red-onion-food.png",
+    technologies: ["JavaScript", "React", "Netlify"],
+    github: "https://github.com/Junaith1994/react-red-onion-food",
+    sitelink: "https://red-onion-food-restaurant-junaith1994.netlify.app/",
   },
 ];
 
@@ -37,17 +119,24 @@ export default function ProjectsSection() {
           >
             {/* Project Image */}
             <div className="relative w-full h-40 mb-4">
-              <Image
-                src={project.image}
-                alt={project.name}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
+              <Link
+                href={project?.sitelink ? project?.sitelink : project.github}
+                target="_blank"
+              >
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  // fill={true}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
+              </Link>
             </div>
 
             {/* Project Name */}
             <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
+            <p className="my-3">{project.description}</p>
 
             {/* Technologies Used */}
             <div className="flex flex-wrap gap-2 mb-4">
@@ -60,6 +149,13 @@ export default function ProjectsSection() {
                 </span>
               ))}
             </div>
+            {project?.category && (
+              <Card shadow="lg" className="mb-4 bg-blue-600 font-bold">
+                <CardBody className="text-">
+                  <p>{project?.category}</p>
+                </CardBody>
+              </Card>
+            )}
 
             {/* GitHub Link */}
             <a

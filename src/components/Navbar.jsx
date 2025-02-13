@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -11,7 +11,8 @@ import {
   Link,
   Button,
 } from "@heroui/react";
-import { usePathname } from "next/navigation";
+import handleSlowScroll from "@/utilities/scrollFeature";
+// import { usePathname } from "next/navigation";
 
 export const AcmeLogo = () => {
   return (
@@ -28,7 +29,8 @@ export const AcmeLogo = () => {
 
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
+  const [activeLink, setActiveLink] = useState(null);
+  console.log(activeLink);
   const menuItems = [
     "Profile",
     "Dashboard",
@@ -41,9 +43,15 @@ const NavbarComponent = () => {
     "Help & Feedback",
     "Log Out",
   ];
-  const pathname = usePathname(); // Get the current route
-  const isActive = (href) =>
-    pathname === href ? "text-blue-500 font-bold" : "text-gray-700";
+
+  // Handle active link
+  const handleActiveLink = (link) => {
+    setActiveLink(link);
+  };
+  // const pathname = usePathname(); // Get the current route
+  // console.log(pathname);
+  // const isActive = (href) =>
+  //   pathname === href ? "text-blue-500 font-bold" : "text-blue-700";
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
@@ -59,26 +67,49 @@ const NavbarComponent = () => {
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive>
+        <NavbarItem>
           <Link
             color="foreground"
-            href="#about-me"
-            className={`${isActive("#about-me")}`}
+            href="/#about-me"
+            onPress={() => handleActiveLink("about-me")}
+            className={
+              activeLink === "about-me"
+                ? "text-blue-600 font-bold underline underline-offset-8"
+                : "text-slate-300 font-bold"
+            }
           >
             About Me
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link aria-current="page" href="#skills">
+        <NavbarItem isActive={false}>
+          <Link
+            aria-current="page"
+            href="#skills"
+            onPress={() => handleActiveLink("skills")}
+            className={
+              activeLink === "skills"
+                ? "text-blue-600 font-bold underline underline-offset-8"
+                : "text-slate-300 font-bold"
+            }
+          >
             Skills
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link color="foreground" href="#projects">
+          <Link
+            color="foreground"
+            href="#projects"
+            onPress={() => handleActiveLink("projects")}
+            className={
+              activeLink === "projects"
+                ? "text-blue-600 font-bold underline underline-offset-8"
+                : "text-slate-300 font-bold"
+            }
+          >
             Projects
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem>
           <Link color="foreground" href="#contact">
             Contact Me
           </Link>
