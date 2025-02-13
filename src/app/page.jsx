@@ -1,5 +1,6 @@
 // import Image from "next/image";
 
+import Footer from "@/components/FooterSection";
 import HeroSection from "@/components/HeroSection";
 import NavbarComponent from "@/components/Navbar";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <SkillsSection />
       <ToolsSection />
       <ProjectsSection />
+      <Footer />
     </div>
   );
 }

@@ -9,10 +9,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
-  Button,
 } from "@heroui/react";
-import handleSlowScroll from "@/utilities/scrollFeature";
-// import { usePathname } from "next/navigation";
 
 export const AcmeLogo = () => {
   return (
@@ -30,39 +27,32 @@ export const AcmeLogo = () => {
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [activeLink, setActiveLink] = useState(null);
-  console.log(activeLink);
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
 
   // Handle active link
   const handleActiveLink = (link) => {
     setActiveLink(link);
   };
-  // const pathname = usePathname(); // Get the current route
-  // console.log(pathname);
-  // const isActive = (href) =>
-  //   pathname === href ? "text-blue-500 font-bold" : "text-blue-700";
+
+  // Close menu when a nav link is clicked
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent justify="">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className={isMenuOpen ? "hidden" : "sm:block"}
         />
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">Junaith</p>
+          {/* <AcmeLogo /> */}
+          <Link href="/">
+            <p className="font-bold text-2xl text-inherit">
+              <span className="text-cyan-400">JUNAITH</span> |{" "}
+              <span>&lt;MERN STACK DEVELOPER /&gt;</span>
+            </p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
@@ -109,41 +99,80 @@ const NavbarComponent = () => {
             Projects
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#contact">
+        {/* <NavbarItem>
+          <Link
+            color="foreground"
+            href="#contact"
+            onPress={() => handleActiveLink("contact")}
+          >
             Contact Me
           </Link>
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
-      {/* <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent> */}
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        <NavbarMenuItem>
+          <Link
+            // onMenuOpenChange={!setIsMenuOpen}
+            href="/#about-me"
+            onPress={() => {
+              handleActiveLink("about-me");
+              setIsMenuOpen(!isMenuOpen);
+            }}
+            className={
+              activeLink === "about-me"
+                ? "text-blue-600 font-bold underline underline-offset-8 w-full"
+                : "text-slate-300 font-bold w-full"
+            }
+            size="lg"
+          >
+            About Me
+          </Link>
+          <Link
+            href="/#skills"
+            onPress={() => {
+              handleActiveLink("skills");
+              setIsMenuOpen(!isMenuOpen);
+            }}
+            className={
+              activeLink === "skills"
+                ? "text-blue-600 font-bold underline underline-offset-8 w-full"
+                : "text-slate-300 font-bold w-full"
+            }
+            size="lg"
+          >
+            Skills
+          </Link>
+          <Link
+            href="/#projects"
+            onPress={() => {
+              handleActiveLink("projects");
+              setIsMenuOpen(!isMenuOpen);
+            }}
+            className={
+              activeLink === "projects"
+                ? "text-blue-600 font-bold underline underline-offset-8 w-full"
+                : "text-slate-300 font-bold w-full"
+            }
+            size="lg"
+          >
+            Projects
+          </Link>
+          <Link
+            href="/#contact"
+            onPress={() => {
+              handleActiveLink("contact");
+              setIsMenuOpen(!isMenuOpen);
+            }}
+            className={
+              activeLink === "contact"
+                ? "text-blue-600 font-bold underline underline-offset-8 w-full"
+                : "text-slate-300 font-bold w-full"
+            }
+            size="lg"
+          >
+            Contact
+          </Link>
+        </NavbarMenuItem>
       </NavbarMenu>
     </Navbar>
   );

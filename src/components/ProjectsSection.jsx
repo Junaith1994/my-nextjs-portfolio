@@ -72,6 +72,16 @@ const projects = [
     sitelink: "",
   },
   {
+    name: "backend-typescript-express-data-management-app",
+    category: "Backend",
+    description: "An on going data managemet-app backend system.",
+    image: "/assets/projects-img/database-backend.png",
+    technologies: ["TypeScript", "Next.js", "Mongoose", "Node-Express", "JWT"],
+    github:
+      "https://github.com/Junaith1994/backend-typescript-express-data-management-app",
+    sitelink: "",
+  },
+  {
     name: "Dr. Junaith",
     description:
       "A dentist personal website where he offered his services and patients can book their desired services after login. Users can create account with email Or can directly login with Gmail.",

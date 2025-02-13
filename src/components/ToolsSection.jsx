@@ -1,17 +1,21 @@
 "use client";
 
-import { FaGitAlt, FaGithub, FaCloudflare } from "react-icons/fa";
+import { FaGitAlt, FaNpm, FaGithub, FaCloudflare } from "react-icons/fa";
 import {
-  SiVisualstudiocode,
   SiPostman,
   SiVercel,
+  SiBun,
   SiFirebase,
   SiMongodb,
+  SiVite,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 const tools = [
   { name: "VS Code", icon: VscVscode },
+  { name: "NPM", icon: FaNpm },
+  { name: "Bun", icon: SiBun },
+  { name: "VITE", icon: SiVite },
   { name: "Postman", icon: SiPostman },
   { name: "Git", icon: FaGitAlt },
   { name: "GitHub", icon: FaGithub },
