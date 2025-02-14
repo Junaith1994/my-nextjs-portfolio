@@ -27,7 +27,7 @@ export const AcmeLogo = () => {
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [activeLink, setActiveLink] = useState(null);
-
+  console.log(activeLink);
   // Handle active link
   const handleActiveLink = (link) => {
     setActiveLink(link);
@@ -40,13 +40,12 @@ const NavbarComponent = () => {
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent justify="">
+      <NavbarContent className="" justify="">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className={isMenuOpen ? "hidden" : "sm:block"}
+          className={isMenuOpen ? "hidden" : "block md:hidden"}
         />
         <NavbarBrand>
-          {/* <AcmeLogo /> */}
           <Link href="/">
             <p className="font-bold text-2xl text-inherit">
               <span className="text-cyan-400">JUNAITH</span> |{" "}
@@ -71,7 +70,7 @@ const NavbarComponent = () => {
             About Me
           </Link>
         </NavbarItem>
-        <NavbarItem isActive={false}>
+        <NavbarItem>
           <Link
             aria-current="page"
             href="#skills"
@@ -99,15 +98,20 @@ const NavbarComponent = () => {
             Projects
           </Link>
         </NavbarItem>
-        {/* <NavbarItem>
+        <NavbarItem isActive>
           <Link
             color="foreground"
             href="#contact"
             onPress={() => handleActiveLink("contact")}
+            className={
+              activeLink === "contact"
+                ? "text-blue-600 font-bold underline underline-offset-8"
+                : "text-slate-300 font-bold"
+            }
           >
             Contact Me
           </Link>
-        </NavbarItem> */}
+        </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         <NavbarMenuItem>
@@ -170,7 +174,7 @@ const NavbarComponent = () => {
             }
             size="lg"
           >
-            Contact
+            Contact Me
           </Link>
         </NavbarMenuItem>
       </NavbarMenu>

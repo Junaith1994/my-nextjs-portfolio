@@ -58,24 +58,24 @@ export default function HeroSection() {
           {/* Social Links */}
           <div className="flex items-center space-x-6">
             <a
-              href="https://github.com/yourgithub"
+              href="https://github.com/Junaith1994"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaGithub className="text-2xl text-gray-800 hover:text-cyan-400" />
             </a>
             <a
-              href="https://linkedin.com/in/yourlinkedin"
+              href="https://www.linkedin.com/in/junaith-bin-elias-khan-060ab3213/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedin className="text-2xl text-gray-800 hover:text-cyan-400" />
             </a>
-            <a href="mailto:yourmail@gmail.com">
+            <a href="mailto:daya2018ctg@gmail.com">
               <FaEnvelope className="text-2xl text-gray-800 hover:text-cyan-400" />
             </a>
             <a
-              href="https://facebook.com/yourfacebook"
+              href="https://www.facebook.com/daya.eliyeskhan.7/"
               target="_blank"
               rel="noopener noreferrer"
             >

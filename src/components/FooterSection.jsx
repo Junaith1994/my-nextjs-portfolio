@@ -14,7 +14,7 @@ const Footer = () => {
         {/* Right Section - Social Icons */}
         <div className="flex space-x-6 text-xl">
           <a
-            href="https://github.com/yourgithub"
+            href="https://github.com/Junaith1994"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-400 transition duration-300"
@@ -22,7 +22,7 @@ const Footer = () => {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/yourlinkedin"
+            href="https://www.linkedin.com/in/junaith-bin-elias-khan-060ab3213/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-400 transition duration-300"
@@ -30,13 +30,13 @@ const Footer = () => {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:yourmail@gmail.com"
+            href="mailto:daya2018ctg@gmail.com"
             className="hover:text-cyan-400 transition duration-300"
           >
             <FaEnvelope />
           </a>
           <a
-            href="https://facebook.com/yourfacebook"
+            href="https://www.facebook.com/daya.eliyeskhan.7/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-400 transition duration-300"
