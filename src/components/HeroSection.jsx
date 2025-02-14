@@ -18,8 +18,8 @@ export default function HeroSection() {
       >
         {/* Text Content */}
         <div className="max-w-lg mb-6 md:mb-0">
-          <h1 className="text-5xl font-bold text-blue-800 mb-4">
-            Assalamu 'Alaikum, <br />I am{" "}
+          <h1 className="text-2xl lg:text-5xl font-bold leading-tight text-blue-800 mb-4">
+            <span className="">Assalamu 'Alaikum,</span> <br />I am{" "}
             <span className="text-cyan-400">Junaith Bin Elias Khan</span>
           </h1>
           <p className="text-lg text-gray-200">
@@ -33,7 +33,7 @@ export default function HeroSection() {
         {/* Image Content */}
         <div className="w-48 h-48 md:w-64 md:h-64 relative">
           <Image
-            src="/assets/junaith.png" // Replace with your actual image path
+            src="/assets/junaith.png"
             alt="Junaith Bin Elias Khan's Picture"
             layout="fill"
             objectFit="cover"
@@ -62,24 +62,24 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub className="text-2xl text-gray-800 hover:text-cyan-400" />
+              <FaGithub className="text-2xl text-cyan-400 hover:text-cyan-800" />
             </a>
             <a
               href="https://www.linkedin.com/in/junaith-bin-elias-khan-060ab3213/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin className="text-2xl text-gray-800 hover:text-cyan-400" />
+              <FaLinkedin className="text-2xl text-cyan-400 hover:text-cyan-800" />
             </a>
             <a href="mailto:daya2018ctg@gmail.com">
-              <FaEnvelope className="text-2xl text-gray-800 hover:text-cyan-400" />
+              <FaEnvelope className="text-2xl text-cyan-400 hover:text-cyan-800" />
             </a>
             <a
               href="https://www.facebook.com/daya.eliyeskhan.7/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaFacebook className="text-2xl text-gray-800 hover:text-cyan-400" />
+              <FaFacebook className="text-2xl text-cyan-400 hover:text-cyan-800" />
             </a>
           </div>
         </div>

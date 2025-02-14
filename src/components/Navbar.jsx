@@ -11,7 +11,7 @@ import {
   Link,
 } from "@heroui/react";
 
-export const AcmeLogo = () => {
+/* export const AcmeLogo = () => {
   return (
     <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
       <path
@@ -23,33 +23,35 @@ export const AcmeLogo = () => {
     </svg>
   );
 };
-
+ */
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [activeLink, setActiveLink] = useState(null);
-  console.log(activeLink);
+
   // Handle active link
   const handleActiveLink = (link) => {
     setActiveLink(link);
   };
 
-  // Close menu when a nav link is clicked
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="" justify="">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className={isMenuOpen ? "hidden" : "block md:hidden"}
-        />
+        <NavbarContent>
+          <NavbarMenuToggle
+            className={isMenuOpen ? "hidden" : "block md:hidden"}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          />
+        </NavbarContent>
         <NavbarBrand>
           <Link href="/">
             <p className="font-bold text-2xl text-inherit">
               <span className="text-cyan-400">JUNAITH</span> |{" "}
-              <span>&lt;MERN STACK DEVELOPER /&gt;</span>
+              <span className="inline lg:hidden md:hidden">
+                &lt;MERN DEV /&gt;
+              </span>
+              <span className="hidden lg:inline md:inline">
+                &lt;MERN STACK DEVELOPER /&gt;
+              </span>
             </p>
           </Link>
         </NavbarBrand>
@@ -116,11 +118,10 @@ const NavbarComponent = () => {
       <NavbarMenu>
         <NavbarMenuItem>
           <Link
-            // onMenuOpenChange={!setIsMenuOpen}
             href="/#about-me"
             onPress={() => {
               handleActiveLink("about-me");
-              setIsMenuOpen(!isMenuOpen);
+              setIsMenuOpen(false); // Close the menu
             }}
             className={
               activeLink === "about-me"
@@ -131,11 +132,13 @@ const NavbarComponent = () => {
           >
             About Me
           </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
           <Link
             href="/#skills"
             onPress={() => {
               handleActiveLink("skills");
-              setIsMenuOpen(!isMenuOpen);
+              setIsMenuOpen(false); // Close the menu
             }}
             className={
               activeLink === "skills"
@@ -146,11 +149,13 @@ const NavbarComponent = () => {
           >
             Skills
           </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
           <Link
             href="/#projects"
             onPress={() => {
               handleActiveLink("projects");
-              setIsMenuOpen(!isMenuOpen);
+              setIsMenuOpen(false); // Close the menu
             }}
             className={
               activeLink === "projects"
@@ -161,11 +166,13 @@ const NavbarComponent = () => {
           >
             Projects
           </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
           <Link
             href="/#contact"
             onPress={() => {
               handleActiveLink("contact");
-              setIsMenuOpen(!isMenuOpen);
+              setIsMenuOpen(false); // Close the menu
             }}
             className={
               activeLink === "contact"
