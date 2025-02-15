@@ -18,7 +18,7 @@ export default function HeroSection() {
       >
         {/* Text Content */}
         <div className="max-w-lg mb-6 md:mb-0">
-          <h1 className="text-2xl lg:text-5xl font-bold leading-tight text-blue-800 mb-4">
+          <h1 className="text-2xl lg:text-5xl font-bold leading-tight text-blue-700 mb-4">
             <span className="">Assalamu 'Alaikum,</span> <br />I am{" "}
             <span className="text-cyan-400">Junaith Bin Elias Khan</span>
           </h1>

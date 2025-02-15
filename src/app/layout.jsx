@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Portfolio",
+  title: "Junaith Bin Elias Khan's Portfolio",
   description: "",
 };
 
