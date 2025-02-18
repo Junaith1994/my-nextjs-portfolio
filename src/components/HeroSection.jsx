@@ -37,7 +37,7 @@ export default function HeroSection() {
             alt="Junaith Bin Elias Khan's Picture"
             layout="fill"
             objectFit="cover"
-            className="rounded-full bg-blue-700 shadow-xl shadow-blue-500/50 brightness-125 drop-shadow-md"
+            className="rounded-full bg-blue-700 shadow-xl shadow-blue-500/50 brightness-125 drop-shadow-md transition delay-150 duration-300 ease-in-out hover:-translate-y-2 hover:scale-110"
           />
         </div>
       </section>
@@ -62,24 +62,24 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub className="text-2xl text-cyan-400 hover:text-cyan-800" />
+              <FaGithub className="text-2xl text-cyan-400 hover:text-cyan-800 transition" />
             </a>
             <a
               href="https://www.linkedin.com/in/junaith-bin-elias-khan-060ab3213/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin className="text-2xl text-cyan-400 hover:text-cyan-800" />
+              <FaLinkedin className="text-2xl text-cyan-400 hover:text-cyan-800 transition" />
             </a>
             <a href="mailto:daya2018ctg@gmail.com">
-              <FaEnvelope className="text-2xl text-cyan-400 hover:text-cyan-800" />
+              <FaEnvelope className="text-2xl text-cyan-400 hover:text-cyan-800 transition" />
             </a>
             <a
               href="https://www.facebook.com/daya.eliyeskhan.7/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaFacebook className="text-2xl text-cyan-400 hover:text-cyan-800" />
+              <FaFacebook className="text-2xl text-cyan-400 hover:text-cyan-800 transition" />
             </a>
           </div>
         </div>

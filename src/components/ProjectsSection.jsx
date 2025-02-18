@@ -125,7 +125,7 @@ export default function ProjectsSection() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="bg-[#11151c] rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all"
+            className="bg-[#11151c] hover:bg-slate-950 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all"
           >
             {/* Project Image */}
             <div className="relative w-full h-40 mb-4">
@@ -139,7 +139,7 @@ export default function ProjectsSection() {
                   // fill={true}
                   layout="fill"
                   objectFit="cover"
-                  className="rounded-lg"
+                  className="rounded-lg transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                 />
               </Link>
             </div>

@@ -39,10 +39,10 @@ const SkillsSection = () => {
           {frontendSkills.map((skill) => (
             <div
               key={skill.name}
-              className="p-4 bg-cyan-400 rounded-xl shadow-md flex flex-col items-center"
+              className="p-4 bg-cyan-400 hover:bg-cyan-700 rounded-xl shadow-md flex flex-col items-center transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
             >
-              <skill.icon className="text-5xl text-blue-950 mb-2" />
-              <h3 className="text-xl font-medium text-gray-700">
+              <skill.icon className="text-5xl text-gray-950 mb-2" />
+              <h3 className="text-xl font-medium text-gray-950">
                 {skill.name}
               </h3>
             </div>
@@ -58,10 +58,10 @@ const SkillsSection = () => {
           {backendSkills.map((skill) => (
             <div
               key={skill.name}
-              className="p-4 bg-cyan-400 rounded-xl shadow-md flex flex-col items-center"
+              className="p-4 bg-cyan-400 hover:bg-cyan-700 rounded-xl shadow-md flex flex-col items-center transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
             >
-              <skill.icon className="text-5xl text-blue-950 mb-2" />
-              <h3 className="text-xl font-medium text-gray-700">
+              <skill.icon className="text-5xl text-gray-950 mb-2" />
+              <h3 className="text-xl font-medium text-gray-950">
                 {skill.name}
               </h3>
             </div>
