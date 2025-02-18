@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { Card, CardBody } from "@heroui/react";
+import { Card, CardBody, Tooltip } from "@heroui/react";
 
 const projects = [
   {
@@ -133,14 +133,16 @@ export default function ProjectsSection() {
                 href={project?.sitelink ? project?.sitelink : project.github}
                 target="_blank"
               >
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  // fill={true}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
-                />
+                <Tooltip content="Click on image to open in a new tab">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    // fill={true}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                  />
+                </Tooltip>
               </Link>
             </div>
 
