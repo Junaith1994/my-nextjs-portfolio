@@ -2,7 +2,15 @@
 import { motion } from "framer-motion";
 import { FaNodeJs, FaReact, FaHtml5, FaCss3, FaJsSquare } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
-import { SiTypescript, SiMongodb, SiExpress, SiRedux } from "react-icons/si";
+import {
+  SiTypescript,
+  SiMongodb,
+  SiMysql,
+  SiPostgresql,
+  SiExpress,
+  SiLaravel,
+  SiRedux,
+} from "react-icons/si";
 
 const SkillsSection = () => {
   const containerVariants = {
@@ -88,16 +96,34 @@ const SkillsSection = () => {
       bgColor: "bg-green-500/10",
     },
     {
+      name: "Express.js",
+      icon: SiExpress,
+      color: "text-gray-300",
+      bgColor: "bg-gray-300/10",
+    },
+    {
+      name: "Laravel",
+      icon: SiLaravel,
+      color: "text-red-500",
+      bgColor: "bg-red-500/10",
+    },
+    {
       name: "MongoDB",
       icon: SiMongodb,
       color: "text-green-400",
       bgColor: "bg-green-400/10",
     },
     {
-      name: "Express.js",
-      icon: SiExpress,
-      color: "text-gray-300",
-      bgColor: "bg-gray-300/10",
+      name: "MySQL",
+      icon: SiMysql,
+      color: "text-green-400",
+      bgColor: "bg-green-400/10",
+    },
+    {
+      name: "PostgreSQL",
+      icon: SiPostgresql,
+      color: "text-green-400",
+      bgColor: "bg-green-400/10",
     },
     {
       name: "TypeScript",
