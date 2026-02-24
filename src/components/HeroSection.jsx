@@ -48,7 +48,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section
+      id="about-me"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />

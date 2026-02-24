@@ -58,23 +58,27 @@ const NavbarComponent = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToSection = (targetId) => {
+    const element = document.getElementById(targetId);
+    if (!element) return;
+
+    const NAV_OFFSET_PX = 72; // navbar height + a bit of breathing room
+    const y =
+      element.getBoundingClientRect().top + window.scrollY - NAV_OFFSET_PX;
+
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  };
+
   const handleSmoothScroll = (href) => {
     const targetId = href.replace("/#", "").replace("#", "");
-    const element = document.getElementById(targetId);
 
-    // Close mobile menu immediately
     setIsMenuOpen(false);
 
-    // Small delay to ensure menu animation completes before scrolling
+    // Allow the sidebar to start closing before scrolling
     setTimeout(() => {
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+      scrollToSection(targetId);
       setActiveLink(targetId);
-    }, 300);
+    }, 250);
   };
 
   const handleNavItemClick = (href) => {
@@ -89,111 +93,118 @@ const NavbarComponent = () => {
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-cyan-500/20"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo/Brand */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Link href="/" className="hover:scale-105 transition-transform">
-              <p className="font-bold text-xl sm:text-2xl text-white">
-                <span className="text-cyan-400 drop-shadow-lg">JUNAITH</span>
-                <span className="mx-1 sm:mx-2 text-slate-400">|</span>
-                <span className="inline lg:hidden md:hidden text-slate-300 text-sm sm:text-base">
-                  &lt;MERN DEV /&gt;
-                </span>
-                <span className="hidden lg:inline md:inline text-slate-300">
-                  &lt;MERN STACK DEVELOPER /&gt;
-                </span>
-              </p>
-            </Link>
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
-              >
-                <button
-                  onClick={() => handleNavItemClick(item.href)}
-                  className={`font-bold transition-all duration-300 relative text-sm sm:text-base ${
-                    activeLink === item.id
-                      ? "text-cyan-400"
-                      : "text-slate-300 hover:text-cyan-400"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-cyan-400 hover:text-cyan-300 p-2 rounded-lg hover:bg-white/10 transition-all duration-300"
-              aria-label="Toggle menu"
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-cyan-500/20"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Brand */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <Link href="/" className="hover:scale-105 transition-transform">
+                <p className="font-bold text-xl sm:text-2xl text-white">
+                  <span className="text-cyan-400 drop-shadow-lg">JUNAITH</span>
+                  <span className="mx-1 sm:mx-2 text-slate-400">|</span>
+                  <span className="inline lg:hidden md:hidden text-slate-300 text-sm sm:text-base">
+                    &lt;MERN DEV /&gt;
+                  </span>
+                  <span className="hidden lg:inline md:inline text-slate-300">
+                    &lt;MERN STACK DEVELOPER /&gt;
+                  </span>
+                </p>
+              </Link>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index }}
+                >
+                  <button
+                    onClick={() => handleNavItemClick(item.href)}
+                    className={`font-bold transition-all duration-300 relative text-sm sm:text-base ${
+                      activeLink === item.id
+                        ? "text-cyan-400"
+                        : "text-slate-300 hover:text-cyan-400"
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-cyan-400 hover:text-cyan-300 p-2 rounded-lg hover:bg-white/10 transition-all duration-300"
+                aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-sidebar"
               >
-                {isMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  {isMenuOpen ? (
+                    <path d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (rendered outside transformed navbar for reliable fixed positioning) */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="md:hidden"
           >
             {/* Backdrop */}
             <div
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
               onClick={() => setIsMenuOpen(false)}
             />
 
             {/* Menu Panel */}
-            <motion.div
+            <motion.aside
+              id="mobile-sidebar"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-slate-900/95 backdrop-blur-xl border-l border-cyan-500/20 shadow-2xl z-50"
+              className="fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-slate-950 border-l border-cyan-500/20 shadow-2xl z-[9999]"
+              role="dialog"
+              aria-modal="true"
             >
               {/* Menu Header */}
               <div className="flex items-center justify-between p-6 border-b border-cyan-500/20">
@@ -204,6 +215,7 @@ const NavbarComponent = () => {
                 <button
                   onClick={() => setIsMenuOpen(false)}
                   className="text-white/70 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/10"
+                  aria-label="Close menu"
                 >
                   <svg
                     className="w-6 h-6"
@@ -229,7 +241,7 @@ const NavbarComponent = () => {
                     initial={{ x: 50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
-                      delay: 0.1 * index,
+                      delay: 0.08 * index,
                       type: "spring",
                       stiffness: 300,
                     }}
@@ -256,11 +268,11 @@ const NavbarComponent = () => {
                   <p className="mt-1">Built with and MERN Stack</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.aside>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </>
   );
 };
 

@@ -186,7 +186,7 @@ export default function ProjectsSection() {
           </p>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* <div className="flex flex-wrap justify-center gap-4">
             {["all", "featured", "backend"].map((filterType) => (
               <motion.button
                 key={filterType}
@@ -202,7 +202,7 @@ export default function ProjectsSection() {
                 {filterType.charAt(0).toUpperCase() + filterType.slice(1)}
               </motion.button>
             ))}
-          </div>
+          </div> */}
         </motion.div>
 
         <motion.div
